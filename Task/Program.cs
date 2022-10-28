@@ -1,4 +1,4 @@
-﻿//Случайное заполнение массива вещественными числами
+﻿//Случайное заполнение массива вещественными числами ( задача № 1)
 double[,] FillArrayByRandom(double[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -6,7 +6,7 @@ double[,] FillArrayByRandom(double[,] matr)
             matr[i, j] = new Random().NextDouble() * 100;
     return matr;
 }
-//Показать двумерный массив размером m×n заполненный вещественными числами.
+//Показать двумерный массив размером m×n заполненный вещественными числами. ( задача № 1)
 void PrintDoubleArray(double[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -26,7 +26,7 @@ void PrintIntArray(int[,] matr)
         Console.WriteLine();
     }
 }
-//Задать двумерный массив следующим правилом: Aₘₙ = m+n
+//Задать двумерный массив следующим правилом: Aₘₙ = m+n ( задача № 2)
 int[,] FillArray(int[,] matr)
 {
     for (int m = 0; m < matr.GetLength(0); m++)
@@ -34,7 +34,7 @@ int[,] FillArray(int[,] matr)
             matr[m, n] = m + n;
     return matr;
 }
-//В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет
+//В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет ( задача № 4)
 int[] FindIndex(int[,] matr, int number)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -43,7 +43,7 @@ int[] FindIndex(int[,] matr, int number)
                 return new int[2] { i, j }; 
     return new int[2] { -1, -1 };
 }
-//В двумерном массиве заменить элементы, у которых оба индекса чётные на их квадраты
+//В двумерном массиве заменить элементы, у которых оба индекса чётные на их квадраты ( задача № 3)
 int[,] EvenIndexesToSqr(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -52,7 +52,7 @@ int[,] EvenIndexesToSqr(int[,] matr)
                 matr[i, j] *= matr[i, j];
     return matr;
 }
-//В матрице чисел найти сумму элементов главной диагонали
+//В матрице чисел найти сумму элементов главной диагонали  ( задача № 5)
 int SumDiagonal(int[,] matr)
 {
     int sum = 0;
@@ -62,7 +62,7 @@ int SumDiagonal(int[,] matr)
                 sum += matr[i, j];
     return sum;
 }
-//Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.
+//Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов. ( задача № 6)
 double[] AvereageOfColumns(int[,] matr)
 {
     double[] result = new double[matr.GetLength(1)];
@@ -74,7 +74,7 @@ double[] AvereageOfColumns(int[,] matr)
     }
     return result;
 }
-//Написать программу, которая обменивает элементы первой строки и последней строки
+//Написать программу, которая обменивает элементы первой строки и последней строки  ( задача № 7)
 int[,] ChangeFirstAndLast(int[,] matr)
 {
     
@@ -87,7 +87,7 @@ int[,] ChangeFirstAndLast(int[,] matr)
     }
     return matr;
 }
-//В прямоугольной матрице найти строку с наименьшей суммой элементов.
+//В прямоугольной матрице найти строку с наименьшей суммой элементов. ( задача № 8)
 int MinStroke(int[,] matr)
 {
     int minSum = 0;
@@ -122,11 +122,13 @@ PrintDoubleArray(doubleMatrix);
 PrintIntArray(intMatrix);
 var index = FindIndex(intMatrix, 7);
 Console.WriteLine($"индекс числа 2 {index[0]},{index[1]}");
+
 PrintIntArray(EvenIndexesToSqr(intMatrix));
-Console.WriteLine("сумма главной диагонали "+SumDiagonal(intMatrix).ToString());
+
+Console.WriteLine("сумма главной диагонали"+SumDiagonal(intMatrix).ToString());
 var avereageArray = AvereageOfColumns(intMatrix);
 foreach(var avereage in avereageArray)
-Console.Write(avereage+ "\t");
+    Console.Write(avereage+ "\t");
 Console.WriteLine();
 PrintIntArray(ChangeFirstAndLast(intMatrix));
 Console.WriteLine("минималная строка "+MinStroke(intMatrix).ToString());
